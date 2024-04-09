@@ -39,7 +39,7 @@ const register = async (req, res) => {
       return res.status(400).json({ msg: "User already exists" });
     } else {
       await insertData("users", newUser);
-      res.status(200).json({ msg: "User registered successfully" });
+      res.status(200).json({status:"Admin Account successfully created",status_code:200,user_id:userId});
     }
   } catch (error) {
     res.status(500).json({ msg: error.message });
@@ -65,13 +65,15 @@ const login = async (req, res) => {
         return res.status(400).json({ msg: "wrong password" });
       } else {
         res.status(200).json({
-          userId: userExist.userId,
-          email: userExist.email,
+          "status": "Login successful",
+          "status_code": 200,
+          "user_id": userExist.userId,
           token: generateToken(userExist.userId),
         });
       }
     } else {
-      res.status(400).json({ msg: "invalid credentials" });
+      res.status(400).json({ "status": "Incorrect username/password provided. Please retry",
+       "status_code": 401 });
     }
   } catch (error) {
     res.status(500).json({ msg: error.message });

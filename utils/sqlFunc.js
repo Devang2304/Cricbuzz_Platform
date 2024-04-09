@@ -13,12 +13,20 @@ const createTable = (schema) => {
 
 const checkRecordsExist = (table, column, value) => {
   return new Promise((resolve, reject) => {
-    const query = `SELECT * FROM ${table} WHERE ${column}=?`;
-
-    pool.query(query, [value], (err, result) => {
-      if (err) reject(err);
-      resolve(result.length ? result[0] : null);
-    });
+    let query;
+    if(value===""){
+      query = `SELECT * FROM ${table}`;
+      pool.query(query, [value], (err, result) => {
+        if (err) reject(err);
+        resolve(result.length ? result : null);
+      });
+    }else{
+       query = `SELECT * FROM ${table} WHERE ${column}=?`;
+       pool.query(query, [value], (err, result) => {
+        if (err) reject(err);
+        resolve(result.length ? result[0] : null);
+      });
+    }
   });
 };
 
