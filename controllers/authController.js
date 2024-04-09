@@ -39,7 +39,7 @@ const register = async (req, res) => {
       return res.status(400).json({ msg: "User already exists" });
     } else {
       await insertData("users", newUser);
-      res.status(200).json({status:"Admin Account successfully created",status_code:200,user_id:userId});
+      res.status(200).json({status:"Admin Account successfully created",status_code:200});
     }
   } catch (error) {
     res.status(500).json({ msg: error.message });

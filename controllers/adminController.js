@@ -35,7 +35,7 @@ const createMatch = async (req, res) => {
                 status: status,
             };
             await insertData("matches", newMatch);
-            res.status(200).json({  "message": "Match created successfully", "match_id": matchId});
+            res.status(200).json({  "message": "Match created successfully"});
         }
     }
     catch (error) {
