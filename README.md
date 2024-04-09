@@ -5,6 +5,10 @@
 
 This project implements an API for a Cricbuzz-like platform using Node.js and MySQL. It allows guest users to browse matches and view details, while admins can manage matches, teams, players, and statistics.
 
+# DEMO
+[screen-capture.webm](https://github.com/Devang2304/Cricbuzz_Platform/assets/69463638/a89d55e3-8a88-4a0e-ab52-cf11a09ffd1e)
+
+
 ## Prerequisites
 
 Before getting started, ensure you have the following prerequisites installed:
